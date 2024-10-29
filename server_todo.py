@@ -38,7 +38,7 @@ class TodoList:
         return result
 
 host = 'localhost'
-port = # port number to listen on
+port = 9000 # port number to listen on
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
@@ -67,6 +67,8 @@ while True:
         index = int(data)
         todo_list.complete_item(index)
         result = "Todo completed."
+    elif choice == "4":    
+        result = str(todo_list.count_items())
     else:
         result = "Invalid command."
     print("Logging: " + result)
